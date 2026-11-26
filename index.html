@@ -4,550 +4,438 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AXA مساحة رقمية تجمع التقنية والإبداع والمعرفة والأدوات والبرامج في مكان واحد.">
 <meta name="theme-color" content="#080808">
-<title>AXA | عالم التقنية والإبداع</title>
-
+<meta name="description" content="AXA MEDIA - منصتك للمحتوى المرئي والإبداعي والمعرفة">
+<title>AXA MEDIA | عالم المحتوى والإبداع</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-
 <style>
 :root{
---bg:#080808;
---bg2:#101010;
---card:#151515;
---line:#342b18;
---gold:#d4af37;
---gold2:#f3d978;
---text:#f5f1e6;
---muted:#b5afa0;
+ --bg:#080808;--card:#151515;--line:#342b18;
+ --gold:#d4af37;--gold2:#f3d978;
+ --text:#f5f1e6;--muted:#aaa394;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-font-family:'Cairo',Tahoma,Arial,sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.9;
-overflow-x:hidden;
+ font-family:Cairo,Tahoma,sans-serif;
+ background:var(--bg);color:var(--text);
+ line-height:1.8;overflow-x:hidden;
 }
 a{text-decoration:none;color:inherit}
-button{font:inherit}
-.gold{
-background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
-}
-
-/* HEADER */
+button,input{font:inherit}
 header{
-position:fixed;
-inset:0 0 auto;
-z-index:100;
-background:rgba(8,8,8,.88);
-backdrop-filter:blur(14px);
--webkit-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(212,175,55,.25);
+ position:sticky;top:0;z-index:20;
+ background:#080808ed;backdrop-filter:blur(14px);
+ border-bottom:1px solid #342b18;
 }
 .bar{
-max-width:1150px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:12px 20px;
+ max-width:1150px;margin:auto;padding:12px 18px;
+ display:flex;align-items:center;justify-content:space-between;
 }
-.logo{
-font-size:29px;
-font-weight:800;
-letter-spacing:5px;
-}
-nav{display:flex;gap:5px}
-nav a{
-padding:7px 13px;
-border-radius:30px;
-font-size:14px;
-color:var(--muted);
-transition:.25s;
-}
-nav a:hover,nav a.active{
-color:#080808;
-background:var(--gold);
-}
+.logo{font-size:27px;font-weight:800;letter-spacing:4px;color:var(--gold)}
+nav{display:flex;gap:20px;font-size:14px;color:var(--muted)}
+nav a:hover{color:var(--gold)}
 .menu{
-display:none;
-background:none;
-border:1px solid var(--line);
-color:var(--gold);
-width:43px;
-height:43px;
-border-radius:10px;
-font-size:22px;
-cursor:pointer;
+ display:none;background:none;color:var(--gold);
+ border:1px solid var(--line);border-radius:9px;
+ padding:5px 12px;font-size:22px;
 }
-
-/* HERO */
 .hero{
-position:relative;
-min-height:100vh;
-display:grid;
-place-items:center;
-text-align:center;
-padding:125px 20px 90px;
-overflow:hidden;
-background:
-radial-gradient(circle at 50% 0%,#30240c 0%,transparent 60%),
-var(--bg);
-}
-.hero:before,.hero:after{
-content:"";
-position:absolute;
-border-radius:50%;
-filter:blur(95px);
-opacity:.25;
-animation:float 9s ease-in-out infinite;
-pointer-events:none;
-}
-.hero:before{
-width:340px;height:340px;
-background:var(--gold);
-top:8%;right:-100px;
-}
-.hero:after{
-width:300px;height:300px;
-background:#8a6a12;
-bottom:5%;left:-100px;
-animation-delay:-4s;
-}
-@keyframes float{
-50%{transform:translateY(40px)}
-}
-.hero-in{
-position:relative;
-z-index:2;
-max-width:760px;
+ text-align:center;padding:85px 18px 65px;
+ background:radial-gradient(ellipse at top,#35270c 0%,#080808 65%);
 }
 .tag{
-display:inline-block;
-border:1px solid var(--gold);
-color:var(--gold);
-padding:5px 18px;
-border-radius:30px;
-font-size:14px;
-margin-bottom:22px;
-background:rgba(212,175,55,.07);
+ display:inline-block;color:var(--gold);
+ border:1px solid var(--gold);border-radius:30px;
+ padding:4px 17px;font-size:13px;margin-bottom:20px;
 }
-.hero h1{
-font-size:clamp(34px,7vw,62px);
-line-height:1.4;
-font-weight:800;
-margin-bottom:16px;
-}
-.hero p{
-color:var(--muted);
-font-size:clamp(16px,2.5vw,20px);
-margin-bottom:32px;
-}
-.actions{
-display:flex;
-gap:14px;
-justify-content:center;
-flex-wrap:wrap;
-}
+.hero h1{font-size:clamp(34px,7vw,58px);line-height:1.4}
+.gold{color:var(--gold)}
+.hero p{color:var(--muted);margin:12px auto 25px;max-width:600px}
 .btn{
-display:inline-block;
-padding:12px 30px;
-border-radius:12px;
-font-weight:700;
-transition:.25s;
+ display:inline-block;background:linear-gradient(120deg,var(--gold),var(--gold2));
+ color:#111;padding:10px 24px;border-radius:10px;font-weight:800;
 }
-.primary{
-background:linear-gradient(135deg,var(--gold),var(--gold2));
-color:#080808;
-box-shadow:0 8px 28px rgba(212,175,55,.2);
+.section{max-width:1150px;margin:auto;padding:55px 18px}
+.heading{text-align:center;margin-bottom:25px}
+.heading h2{font-size:clamp(25px,4vw,36px)}
+.heading p{color:var(--muted);font-size:14px}
+.line{
+ width:65px;height:3px;margin:12px auto;
+ background:var(--gold);border-radius:5px;
 }
-.primary:hover{transform:translateY(-4px)}
-.ghost{
-border:1px solid var(--gold);
-color:var(--gold);
-}
-.ghost:hover{background:var(--gold);color:#080808}
-
-/* STATS */
 .stats{
-max-width:900px;
-margin:-45px auto 0;
-position:relative;
-z-index:3;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:14px;
-padding:0 20px;
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:12px;max-width:800px;margin:0 auto;padding:0 18px;
 }
 .stat{
-background:var(--card);
-border:1px solid var(--line);
-border-radius:16px;
-padding:18px;
-text-align:center;
+ background:var(--card);border:1px solid var(--line);
+ border-radius:14px;padding:13px;text-align:center;
 }
-.stat b{
-display:block;
-font-size:29px;
-color:var(--gold);
-font-weight:800;
+.stat b{display:block;color:var(--gold);font-size:23px}
+.stat span{font-size:12px;color:var(--muted)}
+.search{
+ display:block;width:100%;max-width:600px;margin:0 auto 18px;
+ padding:13px 17px;border-radius:12px;
+ border:1px solid var(--line);background:#121212;color:white;
+ outline:none;
 }
-.stat span{color:var(--muted);font-size:13px}
-
-/* SECTIONS */
-.section{
-padding:90px 20px;
-text-align:center;
-max-width:1150px;
-margin:auto;
+.search:focus{border-color:var(--gold)}
+.filters{
+ display:flex;justify-content:center;gap:9px;
+ flex-wrap:wrap;margin:15px auto 28px;
 }
-.section h2{
-font-size:clamp(27px,4vw,39px);
-font-weight:800;
+.filter{
+ border:1px solid var(--line);background:#141414;
+ color:var(--muted);padding:7px 16px;
+ border-radius:25px;cursor:pointer;font-size:13px;
 }
-.sub{
-color:var(--muted);
-max-width:580px;
-margin:10px auto 42px;
+.filter.active,.filter:hover{
+ background:var(--gold);color:#111;border-color:var(--gold);
 }
-.line{
-width:75px;
-height:3px;
-margin:14px auto 20px;
-border-radius:5px;
-background:linear-gradient(90deg,transparent,var(--gold),transparent);
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+ gap:18px;
 }
-
-/* CARDS */
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
+.item{
+ background:var(--card);border:1px solid var(--line);
+ border-radius:15px;overflow:hidden;transition:.25s;
 }
-.card{
-display:block;
-position:relative;
-background:linear-gradient(150deg,#191919,#101010);
-border:1px solid var(--line);
-border-radius:18px;
-padding:32px 20px;
-transition:.3s;
-overflow:hidden;
+.item:hover{transform:translateY(-5px);border-color:var(--gold)}
+.preview{
+ width:100%;height:180px;background:#0d0d0d;
+ display:flex;align-items:center;justify-content:center;
+ overflow:hidden;color:var(--gold);font-size:38px;
 }
-.card:before{
-content:"";
-position:absolute;
-inset:0;
-background:radial-gradient(circle at 50% 0%,rgba(212,175,55,.16),transparent 65%);
-opacity:0;
-transition:.3s;
-pointer-events:none;
+.preview img,.preview video{
+ width:100%;height:100%;object-fit:cover;
 }
-.card:hover{
-transform:translateY(-8px);
-border-color:var(--gold);
-box-shadow:0 15px 35px rgba(0,0,0,.4);
+.preview audio{width:90%}
+.item-body{padding:15px}
+.item h3{font-size:17px;color:var(--gold);margin-bottom:5px}
+.item p{
+ color:var(--muted);font-size:13px;
+ overflow-wrap:anywhere;
 }
-.card:hover:before{opacity:1}
-.icon{
-position:relative;
-width:65px;
-height:65px;
-margin:0 auto 15px;
-display:grid;
-place-items:center;
-font-size:30px;
-border-radius:18px;
-background:rgba(212,175,55,.1);
-border:1px solid rgba(212,175,55,.35);
+.item small{color:#8f8059;font-size:11px}
+.featured-label{
+ display:inline-block;background:#3a2c0d;color:var(--gold);
+ padding:2px 9px;border-radius:15px;font-size:11px;margin-bottom:7px;
 }
-.card h3{
-position:relative;
-color:var(--gold);
-font-size:20px;
-margin-bottom:7px;
+.empty,.status{
+ text-align:center;color:var(--muted);
+ padding:30px 15px;background:#111;
+ border:1px solid var(--line);border-radius:14px;
 }
-.card p{
-position:relative;
-color:var(--muted);
-font-size:14px;
-}
-.card .more{
-display:inline-block;
-position:relative;
-margin-top:15px;
-color:var(--gold2);
-font-size:13px;
-font-weight:700;
-}
-
-/* ABOUT */
+.status{margin:15px auto;max-width:600px}
 .about{
-background:var(--bg2);
-border-block:1px solid var(--line);
-max-width:none;
+ background:#101010;border-block:1px solid var(--line);
+ text-align:center;
 }
-.about-in{max-width:760px;margin:auto}
-.about p{color:#d6d0c0;font-size:17px}
-
-/* CONTACT */
-.contact-box{
-max-width:650px;
-margin:auto;
-background:var(--card);
-border:1px solid var(--line);
-border-radius:20px;
-padding:35px 22px;
-}
-.contact-box p{
-color:var(--muted);
-margin-bottom:22px;
-}
-
-/* FOOTER */
+.about p{max-width:700px;margin:auto;color:var(--muted)}
 footer{
-background:#000;
-border-top:1px solid rgba(212,175,55,.3);
-text-align:center;
-padding:28px 15px;
-color:var(--muted);
-font-size:13px;
+ text-align:center;padding:25px 15px;
+ border-top:1px solid var(--line);color:var(--muted);font-size:12px;
 }
 footer b{color:var(--gold);letter-spacing:3px}
-.footer-links{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:18px;
-margin-bottom:12px;
+@media(max-width:650px){
+ .menu{display:block}
+ nav{
+  display:none;position:absolute;top:100%;right:0;left:0;
+  background:#090909;padding:18px;flex-direction:column;
+  border-bottom:1px solid var(--line);
+ }
+ nav.open{display:flex}
+ .stats{gap:7px}
+ .stat{padding:10px 4px}
+ .stat b{font-size:19px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .preview{height:135px}
+ .item-body{padding:10px}
+ .item h3{font-size:14px}
+ .item p{font-size:12px}
 }
-.footer-links a:hover{color:var(--gold)}
-
-/* REVEAL */
-.reveal{
-opacity:0;
-transform:translateY(25px);
-transition:opacity .7s,transform .7s;
-}
-.reveal.in{
-opacity:1;
-transform:none;
-}
-
-/* MOBILE */
-@media(max-width:750px){
-.menu{display:block}
-nav{
-position:absolute;
-top:100%;
-inset-inline:0;
-flex-direction:column;
-background:rgba(8,8,8,.98);
-padding:12px 20px 18px;
-border-bottom:1px solid var(--line);
-display:none;
-}
-nav.open{display:flex}
-nav a{padding:10px 14px}
-.bar{padding:10px 16px}
-.hero{min-height:90vh}
-.stats{grid-template-columns:1fr;max-width:300px}
-.cards{grid-template-columns:1fr}
-.section{padding:75px 18px}
-}
-@media(prefers-reduced-motion:reduce){
-*,*:before,*:after{
-animation:none!important;
-transition:none!important;
-scroll-behavior:auto!important;
-}
-.reveal{opacity:1;transform:none}
+@media(max-width:360px){
+ .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-<div class="bar">
-<a href="#home" class="logo gold">AXA</a>
-
-<button class="menu" id="menu"
-aria-label="فتح القائمة"
-aria-expanded="false"
-aria-controls="nav">☰</button>
-
-<nav id="nav">
-<a href="#home">الرئيسية</a>
-<a href="#services">الخدمات</a>
-<a href="#about">من نحن</a>
-<a href="#contact">تواصل معنا</a>
-</nav>
-</div>
+ <div class="bar">
+  <a class="logo" href="#home">AXA MEDIA</a>
+  <button class="menu" id="menu" aria-label="القائمة">☰</button>
+  <nav id="nav">
+   <a href="#home">الرئيسية</a>
+   <a href="#featured">المميز</a>
+   <a href="#library">استكشف المحتوى</a>
+   <a href="#about">من نحن</a>
+  </nav>
+ </div>
 </header>
 
 <main>
-
-<!-- الرئيسية -->
 <section class="hero" id="home">
-<div class="hero-in">
-<span class="tag">✦ التقنية · الإبداع · المعرفة</span>
-<h1>مرحباً بك في عالم <span class="gold">AXA</span></h1>
-<p>مساحتك الرقمية للتقنية والإبداع والمعرفة، في تجربة بسيطة ومميزة.</p>
-<div class="actions">
-<a href="#services" class="btn primary">اكتشف خدماتنا</a>
-<a href="#contact" class="btn ghost">تواصل معنا</a>
-</div>
-</div>
+ <span class="tag">✦ عالم المحتوى والإبداع</span>
+ <h1>مرحباً بك في <span class="gold">AXA MEDIA</span></h1>
+ <p>منصة تجمع الفيديوهات والصور والتصاميم والصوتيات والمقالات في مكان واحد.</p>
+ <a href="#library" class="btn">استكشف المحتوى</a>
 </section>
 
-<!-- الإحصائيات -->
-<div class="stats reveal">
-<div class="stat">
-<b>6</b>
-<span>أقسام متنوعة</span>
-</div>
-<div class="stat">
-<b>100%</b>
-<span>مجاني وبسيط</span>
-</div>
-<div class="stat">
-<b>24/7</b>
-<span>متاح دائماً</span>
-</div>
+<div class="stats">
+ <div class="stat"><b id="totalCount">0</b><span>محتوى منشور</span></div>
+ <div class="stat"><b id="categoryCount">0</b><span>تصنيفات</span></div>
+ <div class="stat"><b>24/7</b><span>متاح دائماً</span></div>
 </div>
 
-<!-- الخدمات -->
-<section class="section" id="services">
-<h2 class="reveal">اكتشف أقسام AXA</h2>
-<div class="line"></div>
-<p class="sub reveal">اختر القسم الذي تريده واستمتع بتجربة رقمية مميزة.</p>
-
-<div class="cards">
-
-<a href="tools.html" class="card reveal">
-<div class="icon">🛠️</div>
-<h3>الأدوات الرقمية</h3>
-<p>حاسبة وأدوات النصوص والتشفير وتحويل الوحدات.</p>
-<span class="more">افتح الأدوات ←</span>
-</a>
-
-<a href="programs.html" class="card reveal">
-<div class="icon">💻</div>
-<h3>البرامج والتطبيقات</h3>
-<p>اكتشف البرامج والتطبيقات المفيدة والمميزة.</p>
-<span class="more">اكتشف البرامج ←</span>
-</a>
-
-<a href="education.html" class="card reveal">
-<div class="icon">📚</div>
-<h3>التعليم والمعرفة</h3>
-<p>تعلم مهارات جديدة واستكشف مصادر المعرفة.</p>
-<span class="more">ابدأ التعلم ←</span>
-</a>
-
-<a href="designs.html" class="card reveal">
-<div class="icon">🎨</div>
-<h3>التصاميم والإبداع</h3>
-<p>مساحة للأفكار والتصاميم والإبداع الرقمي.</p>
-<span class="more">شاهد التصاميم ←</span>
-</a>
-
-<a href="articles.html" class="card reveal">
-<div class="icon">📰</div>
-<h3>المقالات</h3>
-<p>مقالات ومعلومات تقنية وثقافية متنوعة.</p>
-<span class="more">اقرأ المقالات ←</span>
-</a>
-
-<a href="contact.html" class="card reveal">
-<div class="icon">📩</div>
-<h3>التواصل معنا</h3>
-<p>أرسل استفساراتك ومقترحاتك بسهولة.</p>
-<span class="more">تواصل الآن ←</span>
-</a>
-
-</div>
+<section class="section" id="featured">
+ <div class="heading">
+  <h2>⭐ المحتوى <span class="gold">المميز</span></h2>
+  <div class="line"></div>
+  <p>اختيارات مميزة من AXA MEDIA</p>
+ </div>
+ <div class="grid" id="featuredGrid"></div>
+ <div class="empty" id="featuredEmpty" hidden>لا يوجد محتوى مميز حالياً.</div>
 </section>
 
-<!-- من نحن -->
+<section class="section" id="library">
+ <div class="heading">
+  <h2>استكشف <span class="gold">المحتوى</span></h2>
+  <div class="line"></div>
+  <p>ابحث واختر المحتوى الذي تريد مشاهدته</p>
+ </div>
+
+ <input class="search" id="search" type="search" placeholder="🔎 ابحث عن محتوى...">
+ <div class="filters" id="filters">
+  <button class="filter active" data-id="all">الكل</button>
+ </div>
+
+ <div class="grid" id="contentGrid"></div>
+ <div class="empty" id="emptyMessage" hidden>لا يوجد محتوى مطابق لبحثك.</div>
+ <div class="status" id="loading">جارٍ تحميل المحتوى...</div>
+</section>
+
 <section class="section about" id="about">
-<div class="about-in">
-<h2 class="reveal">من نحن</h2>
-<div class="line"></div>
-<p class="reveal">
-AXA مساحة رقمية تجمع التقنية والإبداع والمعرفة في مكان واحد.
-نسعى إلى تقديم أدوات ومعلومات وخدمات مفيدة للجميع،
-من خلال تجربة سهلة وسريعة ومتوافقة مع الهواتف والأجهزة المختلفة.
-</p>
-</div>
+ <div class="heading">
+  <h2>من نحن</h2>
+  <div class="line"></div>
+ </div>
+ <p>
+  AXA MEDIA منصة رقمية للمحتوى والإبداع،
+  تجمع الفيديوهات والصور والتصاميم والصوتيات والمقالات
+  في تجربة سهلة ومتوافقة مع الهواتف والأجهزة المختلفة.
+ </p>
 </section>
-
-<!-- التواصل -->
-<section class="section" id="contact">
-<h2 class="reveal">تواصل معنا</h2>
-<div class="line"></div>
-<div class="contact-box reveal">
-<p>هل لديك فكرة أو اقتراح لتطوير AXA؟ يسعدنا استقبال مقترحاتك.</p>
-<a href="contact.html" class="btn primary">انتقل إلى صفحة التواصل</a>
-</div>
-</section>
-
 </main>
 
 <footer>
-<div class="footer-links">
-<a href="#home">الرئيسية</a>
-<a href="#services">الخدمات</a>
-<a href="#about">من نحن</a>
-<a href="contact.html">التواصل</a>
-</div>
-<p>© 2026 <b>AXA</b> - جميع الحقوق محفوظة</p>
+ <p>© 2026 <b>AXA MEDIA</b> - جميع الحقوق محفوظة</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const nav=document.getElementById('nav');
-const menu=document.getElementById('menu');
+const SUPABASE_URL = "https://dlexcynznymukwtmkisq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_DOMZONghGoTSukaPhLrE_w_XZh9-Swt";
 
-menu.addEventListener('click',()=>{
-const opened=nav.classList.toggle('open');
-menu.setAttribute('aria-expanded',String(opened));
-menu.textContent=opened?'✕':'☰';
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let allItems = [];
+let categories = [];
+let selectedCategory = "all";
+
+const contentGrid = document.getElementById("contentGrid");
+const featuredGrid = document.getElementById("featuredGrid");
+const loading = document.getElementById("loading");
+const emptyMessage = document.getElementById("emptyMessage");
+const featuredEmpty = document.getElementById("featuredEmpty");
+
+document.getElementById("menu").addEventListener("click", () => {
+ document.getElementById("nav").classList.toggle("open");
 });
 
-nav.addEventListener('click',(e)=>{
-if(e.target.closest('a')){
-nav.classList.remove('open');
-menu.setAttribute('aria-expanded','false');
-menu.textContent='☰';
+document.querySelectorAll("#nav a").forEach(link => {
+ link.addEventListener("click", () => {
+  document.getElementById("nav").classList.remove("open");
+ });
+});
+
+function escapeHTML(value) {
+ return String(value ?? "").replace(/[&<>"']/g, char => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+ }[char]));
 }
-});
 
-if('IntersectionObserver' in window){
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('in');
-observer.unobserve(entry.target);
+function safeURL(value) {
+ try {
+  const url = new URL(value);
+  return ["https:","http:"].includes(url.protocol) ? url.href : "";
+ } catch {
+  return "";
+ }
 }
-});
-},{threshold:.12});
 
-document.querySelectorAll('.reveal').forEach((el,i)=>{
-el.style.transitionDelay=(i%3)*80+'ms';
-observer.observe(el);
-});
-}else{
-document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+function getCategory(item) {
+ return item.categories?.name || "بدون تصنيف";
 }
+
+function getPreview(item) {
+ const media = safeURL(item.media_url);
+ const thumb = safeURL(item.thumbnail_url);
+ const type = item.media_type;
+
+ if (type === "image") {
+  const src = thumb || media;
+  return src
+   ? `<img src="${escapeHTML(src)}" alt="${escapeHTML(item.title)}" loading="lazy">`
+   : "🖼️";
+ }
+
+ if (type === "video") {
+  if (media) {
+   return `<video controls playsinline preload="metadata"
+    ${thumb ? `poster="${escapeHTML(thumb)}"` : ""}>
+    <source src="${escapeHTML(media)}">
+    متصفحك لا يدعم تشغيل الفيديو.
+   </video>`;
+  }
+  return thumb ? `<img src="${escapeHTML(thumb)}" alt="" loading="lazy">` : "🎬";
+ }
+
+ if (type === "audio") {
+  return media
+   ? `<audio controls preload="none"><source src="${escapeHTML(media)}"></audio>`
+   : "🎵";
+ }
+
+ if (type === "article") {
+  return thumb
+   ? `<img src="${escapeHTML(thumb)}" alt="" loading="lazy">`
+   : "📰";
+ }
+
+ return "✦";
+}
+
+function createCard(item) {
+ const card = document.createElement("article");
+ card.className = "item";
+
+ const featured = item.is_featured
+  ? '<span class="featured-label">⭐ محتوى مميز</span>'
+  : "";
+
+ const mediaLink = safeURL(item.media_url);
+ const typeName = {
+  video:"فيديو",image:"صورة",audio:"صوتيات",article:"مقال"
+ }[item.media_type] || "محتوى";
+
+ card.innerHTML = `
+  <div class="preview">${getPreview(item)}</div>
+  <div class="item-body">
+   ${featured}
+   <h3>${escapeHTML(item.title)}</h3>
+   <small>${escapeHTML(getCategory(item))} · ${typeName}</small>
+   <p>${escapeHTML(item.description || "لا يوجد وصف لهذا المحتوى.")}</p>
+   ${item.media_type === "article" && mediaLink
+    ? `<p><a class="gold" href="${escapeHTML(mediaLink)}" target="_blank" rel="noopener">اقرأ المقال ↗</a></p>`
+    : ""}
+  </div>
+ `;
+ return card;
+}
+
+function renderItems() {
+ const search = document.getElementById("search").value.trim().toLowerCase();
+
+ const filtered = allItems.filter(item => {
+  const matchesCategory =
+   selectedCategory === "all" ||
+   item.category_id === selectedCategory;
+
+  const text = [
+   item.title,item.description,getCategory(item)
+  ].join(" ").toLowerCase();
+
+  return matchesCategory && text.includes(search);
+ });
+
+ contentGrid.replaceChildren();
+ filtered.forEach(item => contentGrid.appendChild(createCard(item)));
+
+ emptyMessage.hidden = filtered.length !== 0;
+
+ const featured = allItems.filter(item => item.is_featured);
+ featuredGrid.replaceChildren();
+ featured.forEach(item => featuredGrid.appendChild(createCard(item)));
+ featuredEmpty.hidden = featured.length !== 0;
+}
+
+function renderCategories() {
+ const filters = document.getElementById("filters");
+ filters.innerHTML = '<button class="filter active" data-id="all">الكل</button>';
+
+ categories.forEach(category => {
+  const button = document.createElement("button");
+  button.className = "filter";
+  button.dataset.id = category.id;
+  button.textContent = category.name;
+  filters.appendChild(button);
+ });
+
+ filters.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+   selectedCategory = button.dataset.id;
+   filters.querySelectorAll(".filter").forEach(btn =>
+    btn.classList.toggle("active", btn === button)
+   );
+   renderItems();
+  });
+ });
+}
+
+async function loadWebsite() {
+ loading.hidden = false;
+ loading.textContent = "جارٍ تحميل المحتوى...";
+ contentGrid.replaceChildren();
+
+ try {
+  const [categoryResult, itemResult] = await Promise.all([
+   db.from("categories")
+    .select("id,name,slug")
+    .order("name"),
+   db.from("media_items")
+    .select("id,title,description,media_type,media_url,thumbnail_url,category_id,is_featured,created_at,categories(name,slug)")
+    .eq("is_published", true)
+    .order("created_at", {ascending:false})
+  ]);
+
+  if (categoryResult.error) throw categoryResult.error;
+  if (itemResult.error) throw itemResult.error;
+
+  categories = categoryResult.data || [];
+  allItems = itemResult.data || [];
+
+  document.getElementById("totalCount").textContent = allItems.length;
+  document.getElementById("categoryCount").textContent = categories.length;
+
+  renderCategories();
+  renderItems();
+
+  loading.hidden = true;
+
+ } catch (error) {
+  console.error("AXA MEDIA:", error);
+  loading.hidden = false;
+  loading.textContent =
+   "تعذر تحميل المحتوى. تحقق من اتصال Supabase وسياسات القراءة العامة.";
+ }
+}
+
+document.getElementById("search").addEventListener("input", renderItems);
+
+loadWebsite();
 </script>
-
 </body>
 </html>
