@@ -5,35 +5,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080808">
-<meta name="description" content="AXA MEDIA - منصتك للمحتوى المرئي والإبداعي والمعرفة">
+<meta name="description" content="AXA MEDIA - منصة الفيديوهات والصور والتصاميم والصوتيات والمقالات">
 <title>AXA MEDIA | عالم المحتوى والإبداع</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root{
- --bg:#080808;--card:#151515;--line:#342b18;
- --gold:#d4af37;--gold2:#f3d978;
- --text:#f5f1e6;--muted:#aaa394;
+ --bg:#080808;
+ --card:#151515;
+ --line:#342b18;
+ --gold:#d4af37;
+ --gold2:#f3d978;
+ --text:#f5f1e6;
+ --muted:#aaa394;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
  font-family:Cairo,Tahoma,sans-serif;
- background:var(--bg);color:var(--text);
- line-height:1.8;overflow-x:hidden;
+ background:var(--bg);
+ color:var(--text);
+ line-height:1.8;
+ overflow-x:hidden;
 }
 a{text-decoration:none;color:inherit}
 button,input{font:inherit}
+
 header{
  position:sticky;top:0;z-index:20;
- background:#080808ed;backdrop-filter:blur(14px);
- border-bottom:1px solid #342b18;
+ background:#080808ed;
+ backdrop-filter:blur(14px);
+ border-bottom:1px solid var(--line);
 }
 .bar{
  max-width:1150px;margin:auto;padding:12px 18px;
  display:flex;align-items:center;justify-content:space-between;
 }
-.logo{font-size:27px;font-weight:800;letter-spacing:4px;color:var(--gold)}
+.logo{
+ font-size:27px;font-weight:800;
+ letter-spacing:4px;color:var(--gold);
+}
 nav{display:flex;gap:20px;font-size:14px;color:var(--muted)}
 nav a:hover{color:var(--gold)}
 .menu{
@@ -41,6 +54,7 @@ nav a:hover{color:var(--gold)}
  border:1px solid var(--line);border-radius:9px;
  padding:5px 12px;font-size:22px;
 }
+
 .hero{
  text-align:center;padding:85px 18px 65px;
  background:radial-gradient(ellipse at top,#35270c 0%,#080808 65%);
@@ -52,11 +66,18 @@ nav a:hover{color:var(--gold)}
 }
 .hero h1{font-size:clamp(34px,7vw,58px);line-height:1.4}
 .gold{color:var(--gold)}
-.hero p{color:var(--muted);margin:12px auto 25px;max-width:600px}
-.btn{
- display:inline-block;background:linear-gradient(120deg,var(--gold),var(--gold2));
- color:#111;padding:10px 24px;border-radius:10px;font-weight:800;
+.hero p{
+ color:var(--muted);margin:12px auto 25px;
+ max-width:600px;
 }
+.btn{
+ display:inline-block;
+ background:linear-gradient(120deg,var(--gold),var(--gold2));
+ color:#111;padding:10px 24px;
+ border-radius:10px;font-weight:800;border:0;
+ cursor:pointer;
+}
+
 .section{max-width:1150px;margin:auto;padding:55px 18px}
 .heading{text-align:center;margin-bottom:25px}
 .heading h2{font-size:clamp(25px,4vw,36px)}
@@ -65,6 +86,7 @@ nav a:hover{color:var(--gold)}
  width:65px;height:3px;margin:12px auto;
  background:var(--gold);border-radius:5px;
 }
+
 .stats{
  display:grid;grid-template-columns:repeat(3,1fr);
  gap:12px;max-width:800px;margin:0 auto;padding:0 18px;
@@ -75,76 +97,134 @@ nav a:hover{color:var(--gold)}
 }
 .stat b{display:block;color:var(--gold);font-size:23px}
 .stat span{font-size:12px;color:var(--muted)}
+
 .search{
- display:block;width:100%;max-width:600px;margin:0 auto 18px;
- padding:13px 17px;border-radius:12px;
- border:1px solid var(--line);background:#121212;color:white;
- outline:none;
+ display:block;width:100%;max-width:600px;
+ margin:0 auto 18px;padding:13px 17px;
+ border-radius:12px;border:1px solid var(--line);
+ background:#121212;color:white;outline:none;
 }
 .search:focus{border-color:var(--gold)}
+
 .filters{
  display:flex;justify-content:center;gap:9px;
  flex-wrap:wrap;margin:15px auto 28px;
 }
 .filter{
- border:1px solid var(--line);background:#141414;
- color:var(--muted);padding:7px 16px;
- border-radius:25px;cursor:pointer;font-size:13px;
+ border:1px solid var(--line);
+ background:#141414;color:var(--muted);
+ padding:7px 16px;border-radius:25px;
+ cursor:pointer;font-size:13px;
 }
 .filter.active,.filter:hover{
- background:var(--gold);color:#111;border-color:var(--gold);
+ background:var(--gold);color:#111;
+ border-color:var(--gold);
 }
+
 .grid{
- display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+ display:grid;
+ grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
  gap:18px;
 }
 .item{
- background:var(--card);border:1px solid var(--line);
- border-radius:15px;overflow:hidden;transition:.25s;
+ background:var(--card);
+ border:1px solid var(--line);
+ border-radius:15px;overflow:hidden;
+ transition:.25s;
 }
 .item:hover{transform:translateY(-5px);border-color:var(--gold)}
 .preview{
  width:100%;height:180px;background:#0d0d0d;
  display:flex;align-items:center;justify-content:center;
- overflow:hidden;color:var(--gold);font-size:38px;
+ overflow:hidden;color:var(--gold);font-size:42px;
+ cursor:pointer;
 }
-.preview img,.preview video{
+.preview img{
  width:100%;height:100%;object-fit:cover;
 }
-.preview audio{width:90%}
+.preview:hover img{transform:scale(1.04)}
+.preview img{transition:.3s}
+.preview-icon{font-size:48px}
 .item-body{padding:15px}
 .item h3{font-size:17px;color:var(--gold);margin-bottom:5px}
-.item p{
- color:var(--muted);font-size:13px;
- overflow-wrap:anywhere;
-}
+.item p{color:var(--muted);font-size:13px;overflow-wrap:anywhere}
 .item small{color:#8f8059;font-size:11px}
 .featured-label{
  display:inline-block;background:#3a2c0d;color:var(--gold);
- padding:2px 9px;border-radius:15px;font-size:11px;margin-bottom:7px;
+ padding:2px 9px;border-radius:15px;
+ font-size:11px;margin-bottom:7px;
 }
+.open-content{
+ margin-top:12px;
+ background:#211b0d;color:var(--gold);
+ border:1px solid var(--gold);
+}
+.open-content:hover{background:var(--gold);color:#111}
+
 .empty,.status{
  text-align:center;color:var(--muted);
  padding:30px 15px;background:#111;
  border:1px solid var(--line);border-radius:14px;
 }
 .status{margin:15px auto;max-width:600px}
+
 .about{
  background:#101010;border-block:1px solid var(--line);
  text-align:center;
 }
 .about p{max-width:700px;margin:auto;color:var(--muted)}
+
 footer{
  text-align:center;padding:25px 15px;
- border-top:1px solid var(--line);color:var(--muted);font-size:12px;
+ border-top:1px solid var(--line);
+ color:var(--muted);font-size:12px;
 }
 footer b{color:var(--gold);letter-spacing:3px}
+
+/* نافذة عرض المحتوى */
+#contentViewer{
+ display:none;position:fixed;inset:0;z-index:1000;
+ background:rgba(0,0,0,.96);
+ align-items:center;justify-content:center;
+ padding:15px;
+}
+#contentViewer.show{display:flex}
+.viewer-box{
+ width:100%;max-width:950px;max-height:90vh;
+ overflow:auto;background:#151515;
+ border:1px solid var(--gold);
+ border-radius:16px;padding:20px;
+ text-align:center;position:relative;
+}
+.viewer-box h2{color:var(--gold);margin:25px 0 15px}
+.viewer-close{
+ position:absolute;top:10px;left:12px;
+ background:var(--gold);color:#111;border:0;
+ border-radius:50%;width:40px;height:40px;
+ font-size:22px;cursor:pointer;
+}
+#viewerContent img{
+ max-width:100%;max-height:72vh;
+ object-fit:contain;border-radius:10px;
+}
+#viewerContent video{
+ width:100%;max-height:72vh;
+ background:#000;border-radius:10px;
+}
+#viewerContent audio{width:100%;margin:20px 0}
+#viewerContent p{color:#eee;margin:15px 0;white-space:pre-wrap}
+.viewer-description{
+ text-align:right;padding:10px;
+ color:var(--muted)!important;
+}
+.viewer-link{display:inline-block;margin:15px}
+
 @media(max-width:650px){
  .menu{display:block}
  nav{
   display:none;position:absolute;top:100%;right:0;left:0;
-  background:#090909;padding:18px;flex-direction:column;
-  border-bottom:1px solid var(--line);
+  background:#090909;padding:18px;
+  flex-direction:column;border-bottom:1px solid var(--line);
  }
  nav.open{display:flex}
  .stats{gap:7px}
@@ -155,12 +235,14 @@ footer b{color:var(--gold);letter-spacing:3px}
  .item-body{padding:10px}
  .item h3{font-size:14px}
  .item p{font-size:12px}
+ .viewer-box{padding:12px}
 }
 @media(max-width:360px){
  .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -177,6 +259,7 @@ footer b{color:var(--gold);letter-spacing:3px}
 </header>
 
 <main>
+
 <section class="hero" id="home">
  <span class="tag">✦ عالم المحتوى والإبداع</span>
  <h1>مرحباً بك في <span class="gold">AXA MEDIA</span></h1>
@@ -208,6 +291,7 @@ footer b{color:var(--gold);letter-spacing:3px}
  </div>
 
  <input class="search" id="search" type="search" placeholder="🔎 ابحث عن محتوى...">
+
  <div class="filters" id="filters">
   <button class="filter active" data-id="all">الكل</button>
  </div>
@@ -228,13 +312,24 @@ footer b{color:var(--gold);letter-spacing:3px}
   في تجربة سهلة ومتوافقة مع الهواتف والأجهزة المختلفة.
  </p>
 </section>
+
 </main>
 
 <footer>
  <p>© 2026 <b>AXA MEDIA</b> - جميع الحقوق محفوظة</p>
 </footer>
 
+<!-- نافذة عرض الصور والفيديو والصوت والمقالات -->
+<div id="contentViewer" onclick="if(event.target===this)closeViewer()">
+ <div class="viewer-box">
+  <button class="viewer-close" onclick="closeViewer()">✕</button>
+  <h2 id="viewerTitle"></h2>
+  <div id="viewerContent"></div>
+ </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 const SUPABASE_URL = "https://dlexcynznymukwtmkisq.supabase.co";
 const SUPABASE_KEY = "sb_publishable_DOMZONghGoTSukaPhLrE_w_XZh9-Swt";
@@ -263,7 +358,11 @@ document.querySelectorAll("#nav a").forEach(link => {
 
 function escapeHTML(value) {
  return String(value ?? "").replace(/[&<>"']/g, char => ({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#039;"
  }[char]));
 }
 
@@ -285,51 +384,46 @@ function getPreview(item) {
  const thumb = safeURL(item.thumbnail_url);
  const type = item.media_type;
 
- if (type === "image") {
+ if(type === "image"){
   const src = thumb || media;
   return src
    ? `<img src="${escapeHTML(src)}" alt="${escapeHTML(item.title)}" loading="lazy">`
-   : "🖼️";
+   : '<span class="preview-icon">🖼️</span>';
  }
 
- if (type === "video") {
-  if (media) {
-   return `<video controls playsinline preload="metadata"
-    ${thumb ? `poster="${escapeHTML(thumb)}"` : ""}>
-    <source src="${escapeHTML(media)}">
-    متصفحك لا يدعم تشغيل الفيديو.
-   </video>`;
-  }
-  return thumb ? `<img src="${escapeHTML(thumb)}" alt="" loading="lazy">` : "🎬";
- }
-
- if (type === "audio") {
-  return media
-   ? `<audio controls preload="none"><source src="${escapeHTML(media)}"></audio>`
-   : "🎵";
- }
-
- if (type === "article") {
+ if(type === "video"){
   return thumb
-   ? `<img src="${escapeHTML(thumb)}" alt="" loading="lazy">`
-   : "📰";
+   ? `<img src="${escapeHTML(thumb)}" alt="${escapeHTML(item.title)}" loading="lazy">`
+   : '<span class="preview-icon">🎬</span>';
  }
 
- return "✦";
+ if(type === "audio"){
+  return '<span class="preview-icon">🎵</span>';
+ }
+
+ if(type === "article"){
+  return thumb
+   ? `<img src="${escapeHTML(thumb)}" alt="${escapeHTML(item.title)}" loading="lazy">`
+   : '<span class="preview-icon">📰</span>';
+ }
+
+ return '<span class="preview-icon">✦</span>';
 }
 
 function createCard(item) {
  const card = document.createElement("article");
  card.className = "item";
 
+ const typeName = {
+  video:"فيديو",
+  image:"صورة",
+  audio:"صوتيات",
+  article:"مقال"
+ }[item.media_type] || "محتوى";
+
  const featured = item.is_featured
   ? '<span class="featured-label">⭐ محتوى مميز</span>'
   : "";
-
- const mediaLink = safeURL(item.media_url);
- const typeName = {
-  video:"فيديو",image:"صورة",audio:"صوتيات",article:"مقال"
- }[item.media_type] || "محتوى";
 
  card.innerHTML = `
   <div class="preview">${getPreview(item)}</div>
@@ -338,13 +432,114 @@ function createCard(item) {
    <h3>${escapeHTML(item.title)}</h3>
    <small>${escapeHTML(getCategory(item))} · ${typeName}</small>
    <p>${escapeHTML(item.description || "لا يوجد وصف لهذا المحتوى.")}</p>
-   ${item.media_type === "article" && mediaLink
-    ? `<p><a class="gold" href="${escapeHTML(mediaLink)}" target="_blank" rel="noopener">اقرأ المقال ↗</a></p>`
-    : ""}
+   <button class="filter open-content" type="button">عرض المحتوى ↗</button>
   </div>
  `;
+
+ card.querySelector(".open-content").addEventListener("click", () => {
+  openContent(item);
+ });
+
+ card.querySelector(".preview").addEventListener("click", () => {
+  openContent(item);
+ });
+
  return card;
 }
+
+function openContent(item) {
+ const viewer = document.getElementById("contentViewer");
+ const body = document.getElementById("viewerContent");
+ const title = document.getElementById("viewerTitle");
+
+ const url = safeURL(item.media_url);
+ const thumb = safeURL(item.thumbnail_url);
+
+ title.textContent = item.title || "المحتوى";
+ body.replaceChildren();
+
+ if(item.media_type === "image"){
+  if(!url && !thumb){
+   body.textContent = "رابط الصورة غير متوفر.";
+  }else{
+   const img = document.createElement("img");
+   img.src = thumb || url;
+   img.alt = item.title || "صورة";
+   body.appendChild(img);
+  }
+
+ }else if(item.media_type === "video"){
+  if(!url){
+   body.textContent = "رابط الفيديو غير متوفر.";
+  }else{
+   const video = document.createElement("video");
+   video.src = url;
+   video.controls = true;
+   video.autoplay = true;
+   video.playsInline = true;
+   video.preload = "metadata";
+   if(thumb) video.poster = thumb;
+   body.appendChild(video);
+  }
+
+ }else if(item.media_type === "audio"){
+  if(!url){
+   body.textContent = "رابط الصوت غير متوفر.";
+  }else{
+   const audio = document.createElement("audio");
+   audio.src = url;
+   audio.controls = true;
+   audio.autoplay = true;
+   audio.preload = "metadata";
+   body.appendChild(audio);
+  }
+
+ }else if(item.media_type === "article"){
+  const description = document.createElement("p");
+  description.className = "viewer-description";
+  description.textContent = item.description || "لا يوجد نص للمقال.";
+  body.appendChild(description);
+
+  if(url){
+   const link = document.createElement("a");
+   link.href = url;
+   link.target = "_blank";
+   link.rel = "noopener noreferrer";
+   link.textContent = "فتح رابط المقال ↗";
+   link.className = "btn viewer-link";
+   body.appendChild(link);
+  }
+ }
+
+ viewer.classList.add("show");
+}
+
+function closeViewer() {
+ const viewer = document.getElementById("contentViewer");
+ const body = document.getElementById("viewerContent");
+
+ const video = body.querySelector("video");
+ const audio = body.querySelector("audio");
+
+ if(video){
+  video.pause();
+  video.removeAttribute("src");
+  video.load();
+ }
+
+ if(audio){
+  audio.pause();
+  audio.removeAttribute("src");
+  audio.load();
+ }
+
+ body.replaceChildren();
+ viewer.classList.remove("show");
+}
+
+document.addEventListener("keydown", event => {
+ if(event.key === "Escape") closeViewer();
+});
 
 function renderItems() {
  const search = document.getElementById("search").value.trim().toLowerCase();
@@ -355,7 +550,9 @@ function renderItems() {
    item.category_id === selectedCategory;
 
   const text = [
-   item.title,item.description,getCategory(item)
+   item.title,
+   item.description,
+   getCategory(item)
   ].join(" ").toLowerCase();
 
   return matchesCategory && text.includes(search);
@@ -367,13 +564,16 @@ function renderItems() {
  emptyMessage.hidden = filtered.length !== 0;
 
  const featured = allItems.filter(item => item.is_featured);
+
  featuredGrid.replaceChildren();
  featured.forEach(item => featuredGrid.appendChild(createCard(item)));
+
  featuredEmpty.hidden = featured.length !== 0;
 }
 
 function renderCategories() {
  const filters = document.getElementById("filters");
+
  filters.innerHTML = '<button class="filter active" data-id="all">الكل</button>';
 
  categories.forEach(category => {
@@ -387,9 +587,11 @@ function renderCategories() {
  filters.querySelectorAll(".filter").forEach(button => {
   button.addEventListener("click", () => {
    selectedCategory = button.dataset.id;
-   filters.querySelectorAll(".filter").forEach(btn =>
-    btn.classList.toggle("active", btn === button)
-   );
+
+   filters.querySelectorAll(".filter").forEach(btn => {
+    btn.classList.toggle("active", btn === button);
+   });
+
    renderItems();
   });
  });
@@ -401,18 +603,19 @@ async function loadWebsite() {
  contentGrid.replaceChildren();
 
  try {
-  const [categoryResult, itemResult] = await Promise.all([
+  const [categoryResult,itemResult] = await Promise.all([
    db.from("categories")
     .select("id,name,slug")
     .order("name"),
+
    db.from("media_items")
     .select("id,title,description,media_type,media_url,thumbnail_url,category_id,is_featured,created_at,categories(name,slug)")
-    .eq("is_published", true)
-    .order("created_at", {ascending:false})
+    .eq("is_published",true)
+    .order("created_at",{ascending:false})
   ]);
 
-  if (categoryResult.error) throw categoryResult.error;
-  if (itemResult.error) throw itemResult.error;
+  if(categoryResult.error) throw categoryResult.error;
+  if(itemResult.error) throw itemResult.error;
 
   categories = categoryResult.data || [];
   allItems = itemResult.data || [];
@@ -425,17 +628,18 @@ async function loadWebsite() {
 
   loading.hidden = true;
 
- } catch (error) {
-  console.error("AXA MEDIA:", error);
+ }catch(error){
+  console.error("AXA MEDIA:",error);
   loading.hidden = false;
   loading.textContent =
    "تعذر تحميل المحتوى. تحقق من اتصال Supabase وسياسات القراءة العامة.";
  }
 }
 
-document.getElementById("search").addEventListener("input", renderItems);
+document.getElementById("search").addEventListener("input",renderItems);
 
 loadWebsite();
 </script>
+
 </body>
 </html>
