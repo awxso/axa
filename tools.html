@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="أدوات AXA الرقمية المجانية: حاسبة، مولّد كلمات مرور، Base64، SHA-256، JSON وأكثر.">
+<title>AXA Tools | الأدوات الرقمية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--card:#141414;--gold:#d4af37;--gold2:#f3d978;--text:#f5f1e6;--muted:#b5afa0;--line:#2e2718;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.gold{background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+
+header{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(212,175,55,.25)}
+.bar{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 20px}
+.logo{font-size:26px;font-weight:800;letter-spacing:6px}
+.back{color:var(--gold);border:1px solid var(--line);padding:5px 16px;border-radius:999px;font-size:14px;transition:.25s}
+.back:hover{background:var(--gold);color:#080808}
+
+.hero{position:relative;text-align:center;padding:70px 20px 26px;overflow:hidden;background:radial-gradient(circle at 50% 0%,#2a2210 0%,transparent 65%)}
+.hero h1{font-size:clamp(28px,5vw,46px);font-weight:800;line-height:1.5}
+.hero p{color:var(--muted);font-size:17px}
+
+.searchbox{position:relative;width:min(620px,90%);margin:26px auto 14px}
+.search{width:100%;padding:15px 50px 15px 60px;background:#141414;border:1px solid var(--line);border-radius:14px;color:var(--text);font:inherit;font-size:16px;transition:.25s}
+.search:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.12)}
+.searchbox .ico{position:absolute;right:18px;top:50%;transform:translateY(-50%);pointer-events:none}
+.kbd{position:absolute;left:14px;top:50%;transform:translateY(-50%);border:1px solid var(--line);border-radius:6px;padding:0 9px;font-size:13px;color:var(--muted);pointer-events:none}
+
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 20px 8px}
+.chip{background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 18px;font:inherit;font-size:14px;cursor:pointer;margin:0;transition:.25s}
+.chip:hover{color:var(--gold);border-color:var(--gold)}
+.chip.on{background:var(--gold);color:#080808;border-color:var(--gold);font-weight:600}
+
+.container{max-width:1100px;margin:auto;padding:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;align-items:start}
+.card{position:relative;background:linear-gradient(160deg,#171717,#0f0f0f);border:1px solid var(--line);border-radius:18px;padding:24px;min-width:0;transition:.3s;animation:rise .6s both}
+.card:hover{border-color:rgba(212,175,55,.6);box-shadow:0 14px 34px rgba(0,0,0,.5);transform:translateY(-4px)}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}}
+.head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.ic{width:46px;height:46px;flex:none;display:grid;place-items:center;font-size:22px;border-radius:14px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.35)}
+.card h2{color:var(--gold);font-size:19px;line-height:1.4}
+.card p{color:var(--muted);font-size:14px;margin-bottom:12px}
+label{font-size:14px;color:var(--muted)}
+input,textarea,select{width:100%;padding:12px;margin:6px 0;background:#0a0a0a;border:1px solid #393124;border-radius:10px;color:var(--text);font:inherit;transition:.2s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:100px;resize:vertical}
+.row{display:flex;gap:16px;flex-wrap:wrap;margin:4px 0}
+.row label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.row input{width:auto;margin:0;accent-color:var(--gold)}
+button{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;margin:5px 2px;transition:.2s}
+button:hover{filter:brightness(1.1);transform:translateY(-2px)}
+button:active{transform:scale(.97)}
+button.alt{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+button.alt:hover{background:rgba(212,175,55,.12)}
+.result{background:#0a0a0a;border:1px dashed var(--line);border-radius:10px;padding:12px;margin:10px 0 4px;overflow-wrap:anywhere;min-height:46px;color:var(--gold2);white-space:pre-wrap;font-size:15px}
+.mono{font-family:Consolas,Menlo,monospace;direction:ltr;text-align:left}
+.meter{height:6px;border-radius:6px;background:#222;overflow:hidden;margin-top:8px}
+.meter i{display:block;height:100%;width:0;border-radius:6px;transition:.35s}
+.calc-display{font-size:28px;text-align:left;direction:ltr;background:#0a0a0a;font-family:Consolas,Menlo,monospace}
+.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:8px 0}
+.calc-grid button{margin:0;padding:12px 0;font-size:19px;background:#1c1c1c;color:var(--text);border:1px solid var(--line)}
+.calc-grid button:hover{border-color:var(--gold);color:var(--gold)}
+.calc-grid .op{background:rgba(212,175,55,.14);color:var(--gold)}
+.calc-grid .eq{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border:0}
+.empty{text-align:center;color:var(--muted);padding:40px}
+.hidden{display:none!important}
+
+#toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,30px);background:var(--gold);color:#080808;padding:9px 24px;border-radius:999px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:50}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+footer{text-align:center;color:var(--muted);padding:28px;border-top:1px solid rgba(212,175,55,.3);margin-top:50px;font-size:14px}
+footer b{color:var(--gold);letter-spacing:3px}
+@media(max-width:360px){.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header><div class="bar">
+  <a class="logo gold" href="index.html">AXA</a>
+  <a class="back" href="index.html">← الرئيسية</a>
+</div></header>
+
+<section class="hero">
+  <h1>🛠️ أدوات <span class="gold">AXA</span> الرقمية</h1>
+  <p>مجموعة أدوات مجانية تعمل داخل متصفحك، ولا ترسل بياناتك لأي جهة.</p>
+  <div class="searchbox">
+    <span class="ico">🔎</span>
+    <input class="search" id="search" placeholder="ابحث عن أداة..." autocomplete="off" aria-label="بحث">
+    <span class="kbd">/</span>
+  </div>
+  <div class="chips" id="chips">
+    <button class="chip on" data-c="all">الكل</button>
+    <button class="chip" data-c="math">حساب</button>
+    <button class="chip" data-c="security">أمان</button>
+    <button class="chip" data-c="text">نصوص</button>
+    <button class="chip" data-c="dev">مطوّرون</button>
+  </div>
+</section>
+
+<main class="container">
+<div class="grid" id="tools">
+
+<section class="card" data-cat="math" data-name="حاسبة آلة حاسبة حساب calculator">
+  <div class="head"><div class="ic">🧮</div><h2>الآلة الحاسبة</h2></div>
+  <p>العمليات الحسابية الأساسية، وتدعم لوحة المفاتيح.</p>
+  <input id="calcDisplay" class="calc-display" value="0" readonly aria-label="الشاشة">
+  <div class="calc-grid" id="calcGrid"></div>
+  <div class="result" id="calcResult">النتيجة ستظهر هنا</div>
+</section>
+
+<section class="card" data-cat="security" data-name="كلمات مرور كلمة السر مولد password">
+  <div class="head"><div class="ic">🔐</div><h2>مولّد كلمات المرور</h2></div>
+  <p>كلمة مرور عشوائية قوية تُنشأ على جهازك فقط.</p>
+  <label for="passLength">الطول: <b id="lenVal">16</b></label>
+  <input type="range" id="passLength" min="8" max="64" value="16" style="accent-color:var(--gold);padding:0">
+  <div class="row">
+    <label><input type="checkbox" id="passNumbers" checked> أرقام</label>
+    <label><input type="checkbox" id="passSymbols" checked> رموز</label>
+  </div>
+  <button onclick="generatePassword()">إنشاء كلمة مرور</button>
+  <button class="alt" onclick="copyResult('passResult')">نسخ</button>
+  <div class="result mono" id="passResult">ستظهر كلمة المرور هنا</div>
+  <div class="meter"><i id="meterBar"></i></div>
+</section>
+
+<section class="card" data-cat="text" data-name="النصوص عداد الكلمات الحروف text">
+  <div class="head"><div class="ic">📝</div><h2>أدوات النصوص</h2></div>
+  <p>احسب الحروف والكلمات والأسطر، وحوّل الإنجليزية بين كبيرة وصغيرة.</p>
+  <textarea id="textInput" placeholder="اكتب النص هنا..." oninput="textStats()"></textarea>
+  <div class="result" id="textStats">الحروف: 0 | الكلمات: 0 | الأسطر: 0</div>
+  <button onclick="upperText()">ABC كبيرة</button>
+  <button onclick="lowerText()">abc صغيرة</button>
+  <button class="alt" onclick="copyResult('textInput')">نسخ</button>
+  <button class="alt" onclick="document.getElementById('textInput').value='';textStats()">مسح</button>
+</section>
+
+<section class="card" data-cat="dev" data-name="base64 تشفير فك التشفير ترميز">
+  <div class="head"><div class="ic">🔡</div><h2>Base64</h2></div>
+  <p>ترميز النص وفك ترميزه، ويدعم العربية.</p>
+  <textarea id="baseInput" placeholder="أدخل النص هنا..."></textarea>
+  <button onclick="baseEncode()">ترميز</button>
+  <button onclick="baseDecode()">فك الترميز</button>
+  <button class="alt" onclick="copyResult('baseResult')">نسخ</button>
+  <div class="result mono" id="baseResult">النتيجة ستظهر هنا</div>
+</section>
+
+<section class="card" data-cat="security" data-name="sha256 تجزئة بصمة النص hash">
+  <div class="head"><div class="ic">🔒</div><h2>SHA-256</h2></div>
+  <p>إنشاء بصمة رقمية للنص.</p>
+  <textarea id="hashInput" placeholder="أدخل النص هنا..."></textarea>
+  <button onclick="makeHash()">إنشاء البصمة</button>
+  <button class="alt" onclick="copyResult('hashResult')">نسخ</button>
+  <div class="result mono" id="hashResult">ستظهر البصمة هنا</div>
+</section>
+
+<section class="card" data-cat="math" data-name="تحويل وحدات قياس units">
+  <div class="head"><div class="ic">🔄</div><h2>تحويل الوحدات</h2></div>
+  <p>الطول والوزن والحرارة بنقرة واحدة.</p>
+  <input type="number" id="unitValue" placeholder="أدخل القيمة" step="any">
+  <select id="unitType">
+    <option value="km-m">كيلومتر ← متر</option>
+    <option value="m-km">متر ← كيلومتر</option>
+    <option value="m-cm">متر ← سنتيمتر</option>
+    <option value="cm-m">سنتيمتر ← متر</option>
+    <option value="kg-g">كيلوغرام ← غرام</option>
+    <option value="g-kg">غرام ← كيلوغرام</option>
+    <option value="c-f">مئوية ← فهرنهايت</option>
+    <option value="f-c">فهرنهايت ← مئوية</option>
+  </select>
+  <button onclick="convertUnit()">تحويل</button>
+  <div class="result" id="unitResult">النتيجة ستظهر هنا</div>
+</section>
+
+<section class="card" data-cat="dev" data-name="json تنسيق مطور format">
+  <div class="head"><div class="ic">{ }</div><h2>منسّق JSON</h2></div>
+  <p>تنسيق وضغط والتحقق من صحة JSON.</p>
+  <textarea id="jsonInput" class="mono" placeholder='{"name":"AXA"}'></textarea>
+  <button onclick="jsonFmt(2)">تنسيق</button>
+  <button onclick="jsonFmt(0)">ضغط</button>
+  <button class="alt" onclick="copyResult('jsonResult')">نسخ</button>
+  <div class="result mono" id="jsonResult">النتيجة ستظهر هنا</div>
+</section>
+
+</div>
+<p id="noResults" class="empty hidden">لم يتم العثور على أداة بهذا الاسم 🔍</p>
+</main>
+
+<footer>© 2026 <b>AXA</b> - جميع الحقوق محفوظة</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),1800)}
+
+/* Calculator */
+const keys=[['(','('],[')',')'],['⌫','back'],['C','clear'],['7'],['8'],['9'],['÷','/','op'],['4'],['5'],['6'],['×','*','op'],['1'],['2'],['3'],['−','-','op'],['0'],['.'],['=','=','eq'],['+','+','op']];
+$('calcGrid').innerHTML=keys.map(k=>`<button class="${k[2]||''}" data-k="${k[1]||k[0]}">${k[0]}</button>`).join('');
+$('calcGrid').addEventListener('click',e=>{const k=e.target.dataset.k;if(k)press(k)});
+function press(k){
+  const d=$('calcDisplay');
+  if(k==='clear')return clearCalc();
+  if(k==='=')return calculate();
+  if(d.value==='0'||d.value==='خطأ')d.value='';
+  if(k==='back')d.value=d.value.slice(0,-1)||'0';
+  else d.value+=k;
+}
+function clearCalc(){$('calcDisplay').value='0';$('calcResult').textContent='النتيجة ستظهر هنا'}
+function calculate(){
+  const d=$('calcDisplay');
+  try{
+    if(!/^[0-9+\-*/.() ]+$/.test(d.value))throw Error();
+    const r=Function('"use strict";return ('+d.value+')')();
+    if(!Number.isFinite(r))throw Error();
+    const v=+r.toPrecision(12);
+    $('calcResult').textContent='النتيجة: '+v;d.value=String(v);
+  }catch(e){$('calcResult').textContent='عملية غير صحيحة';d.value='خطأ'}
+}
+document.addEventListener('keydown',e=>{
+  const tag=document.activeElement.tagName;
+  if(e.key==='/'&&tag!=='INPUT'&&tag!=='TEXTAREA'){e.preventDefault();$('search').focus();return}
+  if(e.key==='Escape'&&document.activeElement===$('search')){$('search').blur();return}
+  if(document.activeElement!==document.body)return;
+  if(/^[0-9+\-*/.()]$/.test(e.key))press(e.key);
+  else if(e.key==='Enter')calculate();
+  else if(e.key==='Backspace')press('back');
+});
+
+/* Password */
+$('passLength').addEventListener('input',e=>$('lenVal').textContent=e.target.value);
+function generatePassword(){
+  const len=Math.max(8,Math.min(64,Number($('passLength').value)||16));
+  let chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if($('passNumbers').checked)chars+='0123456789';
+  if($('passSymbols').checked)chars+='!@#$%^&*_-+=?';
+  const lim=Math.floor(4294967296/chars.length)*chars.length,out=[];
+  while(out.length<len){
+    const r=crypto.getRandomValues(new Uint32Array(len));
+    for(const n of r){if(n<lim&&out.length<len)out.push(chars[n%chars.length])}
+  }
+  $('passResult').textContent=out.join('');
+  const bits=len*Math.log2(chars.length),b=$('meterBar');
+  b.style.width=Math.min(100,bits/1.2)+'%';
+  b.style.background=bits<50?'#d9534f':bits<80?'#e0a526':'#4cae6a';
+}
+
+/* Text */
+function textStats(){
+  const t=$('textInput').value,w=t.trim()?t.trim().split(/\s+/).length:0,l=t?t.split('\n').length:0;
+  $('textStats').textContent=`الحروف: ${t.length} | الكلمات: ${w} | الأسطر: ${l}`;
+}
+function upperText(){const e=$('textInput');e.value=e.value.toUpperCase();textStats()}
+function lowerText(){const e=$('textInput');e.value=e.value.toLowerCase();textStats()}
+
+/* Base64 */
+function baseEncode(){
+  try{
+    let s='';new TextEncoder().encode($('baseInput').value).forEach(b=>s+=String.fromCharCode(b));
+    $('baseResult').textContent=btoa(s);
+  }catch(e){$('baseResult').textContent='تعذر الترميز'}
+}
+function baseDecode(){
+  try{
+    const bin=atob($('baseInput').value.trim());
+    $('baseResult').textContent=new TextDecoder('utf-8',{fatal:true}).decode(Uint8Array.from(bin,c=>c.charCodeAt(0)));
+  }catch(e){$('baseResult').textContent='النص المدخل غير صالح'}
+}
+
+/* SHA-256 */
+async function makeHash(){
+  if(!crypto.subtle){$('hashResult').textContent='تحتاج هذه الأداة إلى اتصال آمن HTTPS';return}
+  const h=await crypto.subtle.digest('SHA-256',new TextEncoder().encode($('hashInput').value));
+  $('hashResult').textContent=[...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+/* Units */
+function convertUnit(){
+  const raw=$('unitValue').value.trim(),v=Number(raw);
+  if(raw===''||!Number.isFinite(v)){$('unitResult').textContent='أدخل قيمة صحيحة';return}
+  const t=$('unitType').value,f={'km-m':1000,'m-km':.001,'m-cm':100,'cm-m':.01,'kg-g':1000,'g-kg':.001};
+  const r=t==='c-f'?v*9/5+32:t==='f-c'?(v-32)*5/9:v*f[t];
+  $('unitResult').textContent='النتيجة: '+(+r.toPrecision(12));
+}
+
+/* JSON */
+function jsonFmt(n){
+  try{$('jsonResult').textContent=JSON.stringify(JSON.parse($('jsonInput').value),null,n)}
+  catch(e){$('jsonResult').textContent='JSON غير صالح: '+e.message}
+}
+
+/* Copy */
+async function copyResult(id){
+  const el=$(id),v=el.value!==undefined?el.value:el.textContent;
+  try{await navigator.clipboard.writeText(v);toast('تم النسخ ✓')}
+  catch(e){toast('تعذر النسخ، حدّد النص يدويًا')}
+}
+
+/* Search + categories */
+let cat='all';
+function filter(){
+  const q=$('search').value.trim().toLowerCase();let n=0;
+  document.querySelectorAll('.card').forEach(c=>{
+    const ok=(cat==='all'||c.dataset.cat===cat)&&(!q||c.dataset.name.toLowerCase().includes(q)||c.querySelector('h2').textContent.toLowerCase().includes(q));
+    c.classList.toggle('hidden',!ok);if(ok)n++;
+  });
+  $('noResults').classList.toggle('hidden',n>0);
+}
+$('search').addEventListener('input',filter);
+$('chips').addEventListener('click',e=>{
+  const c=e.target.dataset.c;if(!c)return;
+  cat=c;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===e.target));filter();
+});
+document.querySelectorAll('.card').forEach((c,i)=>c.style.animationDelay=i*70+'ms');
+</script>
+</body>
+</html>
